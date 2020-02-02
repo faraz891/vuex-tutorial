@@ -1,24 +1,27 @@
 <template>
   <div class="ui secondary pointing menu">
-    <a href="/" class="active item">Image Storage</a>
+    
+    <router-link to="/" class="active item">Image Storage</router-link>
+
     <div class="right menu">
       <div v-if="isLoggedIn" class="horizontal">
-        <a class="item">Galleries</a>
-        <a class="item">Upload</a>
+        <router-link to="/" class="item">Galleries</router-link>
+        <router-link to="/upload" class="item">Upload</router-link>
         <a class="item" @click="logout">Logout</a>
       </div>
       <a v-else href="#" class="ui item" @click="login">Login</a>
     </div>
+
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'; // Import a helper from vuex. mapActions is a function that will automagically connect different actions that we have created inside of our modules to a component
+import { mapActions, mapGetters } from "vuex"; // Import a helper from vuex. mapActions is a function that will automagically connect different actions that we have created inside of our modules to a component
 
 export default {
-  name: 'AppHeader',
-  computed: mapGetters(['isLoggedIn']),
-  methods: mapActions(['login', 'logout'])
+  name: "AppHeader",
+  computed: mapGetters(["isLoggedIn"]),
+  methods: mapActions(["login", "logout"])
 };
 </script>
 
