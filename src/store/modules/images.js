@@ -9,10 +9,11 @@ const getters = {
 };
 
 const actions = {
-    async fetchImages({ rootState }) {    // rootState lets us grab state from other vuex modules like auth.js that has been imported inside index.js vuex store
+    async fetchImages({ rootState, commit }) {    // rootState lets us grab state from other vuex modules like auth.js that has been imported inside index.js vuex store
         const { token } = rootState.auth;
         const response = await api.fetchImages(token);
-        console.log(response);
+        // console.log(response);
+        commit('setImages', response.data.data)
     }
 };
 
