@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="isLoggedIn" class="image-container">
-      <img v-for="image in allImages" :src="image.link" />
+      <img v-for="image in allImages" v-bind:key="image.link" :src="image.link" />
     </div>
     <h2 v-else>Log in to get started.</h2>
   </div>
